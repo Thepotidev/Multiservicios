@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/style.css">
+    <title>Multiservicios Jonathan</title>
+
+    <script>
+        // Funcion para filtrar los resultados de la tabla 
+        function filterTable() {
+            const searchInput = document.getElementByid('searchInput').value.toLowerCase();
+            const tableRows = document.querySelectorAll('clientsTable');
+
+            tableRows.forEach(row => {
+                const id = row.querySelector('.client-id').textContent.toLowerCase();
+                const nombres = row.querySelector('.client-nombres').textContent.toLowerCase();
+                const apellidos = row.querySelector('.client-apellidos').textContent.toLowerCase();
+
+                if (id.includes(searchInput) || nombres.includes(searchInput) || apellidos.includes(searchInput)) {
+                    row.style.display = '';
+                }
+                else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
+</head>
+<body>
+    <h1>Dashboard</h1>
+    <!-- <%= clients.length %> -->
+    <p>Total de clientes registrados: </p>
+
+    <!-- Barra de Busqueda -->
+    <input type="text" id="searchInput" placeholder="Buscar por ID, Nombre o Apellido" onekeyup="filterTable()">
+    
+    <!-- Tabla de clientes -->
+    <table id="clientsTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Fecha de Creacion</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <!-- <% clients.forEach(client => { %> -->
+            <tr>
+                <!-- <%= client.id %> -->
+                <td class="client-id">ID del cliente</td>
+                <!-- <%= client.nombres %> -->
+                <td class="client-nombres">Nombre del cliente</td>
+                <!-- <%= client.apellidos %> -->
+                <td class="client-apellidos">Apellido del cliente</td>
+                <!-- <%= client.fechaCreacion.toLocaleDateString() %> -->
+                <td>Fecha de creacion</td>
+                <td>
+                    <button>Editar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="/views/register-client.ejs">Registrar Cliente</a>
+    <a href="/routes/auth.js/logout">Cerrar Sesion</a>
+    
+</body>
+</html>

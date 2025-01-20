@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/style.css">
+    <title>Registrar Cliente</title>
+</head>
+<body>
+    <h1>Registrar Cliente</h1>
+    <form action="/views/register-client.ejs" method="post">
+        <h3>Datos del Cliente</h3>
+        <input type="text" name="nombres" placeholder="Nombres" required>
+        <input type="text" name="apellidos" placeholder="Apellidos" required>
+        <input type="text" name="telefono" placeholder="Telefono" required>
+        <input type="text" name="Direccion" placeholder="Direccion" required>
+
+        <h3>Datos del Vehiculo</h3>
+        <input type="text" name="marca" placeholder="Marca" required>
+        <input type="text" name="modelo" placeholder="Modelo" required>
+        <input type="text" name="año" placeholder="año" required>
+        <input type="text" name="transmision" placeholder="Transmision" required>
+        <input type="text" name="color" placeholder="Color" required>
+        <input type="text" name="falla" placeholder="Falla" required>
+        <textarea name="observaciones" placeholder="Observaciones" required></textarea>
+
+        <label>
+            <input type="checkbox" id="fallasElectricas" onchange="toggleModulo()" name="fallasElectricas">
+            El vehiculo viene por fallas electronicas?
+        </label>
+        <div id="moduloField" style="display: none;">
+            <input type="text" name="tipoModulo" placeholder="Tipo de Modulo">
+        </div>
+
+        <button type="submit">Registrar</button>
+
+    </form>
+
+    <script>
+        function toggleModulo() {
+            const checkbox = document.getElementById('fallasElectronicas');
+            const moduloField = document.getElementById('moduloField');
+            moduloField.style.display = checkbox.checked ? 'block' : 'none';
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/css/styles.css">
+    <title>Inicio de Sesion</title>
+</head>
+<body>
+    <h1>Inicio de Sesion</h1>
+    <form action="/routes/auth.js" method="POST">
+        <input type="text" name="username" placeholder="Usuario" required>
+        <input type="password" name="password" placeholder="Contraseña" required>
+        <button type="submit">Iniciar Sesion</button>
+    </form>
+
+    if (typeof error !== 'undefined') {
+        <p style="color: red;">Usuario o Contraseña incorrecta</p>
+    }
+
+</body>
+</html>
